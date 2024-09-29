@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang=" es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">  <!--Sirve para hacer el menu deslizante -->
+
+    <link rel="stylesheet" href = "style.css">  <!--Se conecta con el archivo .css -->
+    <script src="funciones.js"></script>  <!--Se conecta con el archivo .js -->
+
+</head>
+<body>
+    <header>
+        <h6 class="Encabezado">HBL</h6>
+    </header>
+        
+        <main class="products">
+            <h2 class = 'miniTitulo'>Publicaciones </h2> 
+            <div class="tabs container">
+                
+                <input type="radio" name="tabs" id="tab1" checked="checked" class="tabInput" value="1">
+                <label for="tab1">Agregar</label>
+                <div class="tab">
+                    <div class="swiper mySwiper-2" id="swiper1">
+                        <div class="swiper-wrapper">
+
+                            <div class="swiper-slide">
+                                <div class="product">
+                                    <div class="product-txt">
+                                        <section class="Publics"></section>
+
+                                            <div class="tabla">
+                                                <div id="izquierda">    <!--Formulario para agregar publicaciones-->
+                                                    <form id="AgregarF">
+                                                        <input type="text" id="Titulo" name="Titulo" placeholder="Titulo de publicación" class="atributos" required>
+                                                        <input type="text" id="DOI" name="DOI" placeholder="DOI de publicación" class="atributos" required>
+                                                        <input type="text" id="ISBN" name="ISBN" placeholder="ISBN de publicación" class="atributos" required>
+                                                        <input type="text" id="Pais" name="Pais" placeholder="País donde se publicó" class="atributos" required>
+                                                        <input type="text" id="Fecha" name="Fecha" placeholder="Fecha de la publicación (YYYY-MM-DD)" class="atributos" required>
+                                                        <input type="text" id="inst" name="inst" placeholder="Id de la institución" class="atributos" required>
+                                                        <input type="text" id="edit" name="edit" placeholder="Id de la editorial" class="atributos" required>
+                                                        <input type="text" id="espe" name="espe" placeholder="Id/s del/las especie/es" class="atributos" required>
+                                                        <h1 class="anotacion">*Si es mas de una especie separe los id por ','</h1>
+                                                        <input type="text" id="autos" name="autos" placeholder="Id/s del/los autor/es" class="atributos" required>
+                                                        <h1 class="anotacion">*Si es mas de un autor separe los id por ','</h1>
+                                                        <input type="text" id="colectas" name="colectas" placeholder="Id/s del/los coleccion/es" class="atributos" required>
+                                                        <h1 class="anotacion">*Si es mas de una coleccion separe los id por ','</h1>
+                                                        <h1 class="trans">AAAAAAAAAAA</h1>
+                                                        <br>
+                                                        <button id="Agregar" type="submit">Agregar</button>
+                                                        
+                                                    </form>
+                                                </div>
+                                                                    <!--Seccion para mostrar los elementos para ayudar a ingresar -->
+                                                <div id="Centro">
+                                                    <button id="I" type="button">Ver Instituciones</button>
+                                                    <h1 class="trans">AAAAAAAA</h1>
+                                                    <ul id="institucionesList" style="display: none;"></ul>
+                                                </div>
+                                                
+                                                <div id="Derecha">
+                                                    <button id="E" type="button">Ver Editoriales</button>
+                                                    <h1 class="trans">AAAAAAAA</h1>
+                                                    <ul id="editorialesList" style="display: none;"></ul>
+                                                </div>
+
+                                                <div id="Autores"> 
+                                                    <button id="A" type="button">Ver Autores</button>
+                                                    <h1 class="trans">AAAAAAAA</h1>
+                                                    <ul id="autoresList" style="display: none;"></ul>
+                                                </div>
+
+                                                <div id="Especies"> 
+                                                    <button id="Es" type="button">Ver Especies</button>
+                                                    <h1 class="trans">AAAAAAAA</h1>
+                                                    <ul id="especiesList" style="display: none;"></ul>
+                                                </div>
+                                            </div>
+
+                                            <script src="funciones.js"></script>
+
+                                              
+                                                
+                                
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <input type="radio" name="tabs" id="tab2" checked="checked" class="tabInput" value="2">
+                <label for="tab2">Buscar</label>
+                <div class="tab">
+                    <div class="swiper mySwiper-2" id="swiper2">
+                        <div class="swiper-wrapper">
+
+                            <div class="swiper-slide">
+                                <div class="product">
+                                    <div class="product-txt">
+                                        <section class="Publics">   <!--Aqui esta la barra de busqueda para filtrar por nombre de especies-->
+                                            <form id="buscar">
+                                                <input type="text" id="nombreC" name="nombreC" placeholder="Consulta por nombre científico" required>
+                                                <button id= "willy" type="submit">Buscar</button>
+                                            </form>
+                                            <ul id="pus" style="display: none;"></ul>
+                                        
+                                            <script src="funciones.js"></script>
+                                        </section>
+                                        
+                                        
+                                                
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <input type="radio" name="tabs" id="tab3" checked="checked" class="tabInput" value="3">
+                <label for="tab3">Actualizar</label>
+                <div class="tab">
+                    <div class="swiper mySwiper-2" id="swiper3">
+                        <div class="swiper-wrapper">
+
+                            <div class="swiper-slide">
+                                <div class="product">
+                                    <div class="product-txt">
+                                        <div class="Barra">
+                                            <form id="buscar2"> <!-- La barrar de busqueda para buscar por nombre y vizualizar las modificaciones-->
+                                                <input type="text" id="nombreC2" name="nombreC2" placeholder="Buscar por nombre" required>
+                                                <button id="willy2" type="submit">Buscar</button>
+                                            </form>
+                                            <ul id="pus2" style="display: none;"></ul>
+                                            
+                                        </div>
+                                        <br>             <!--Formulario para hacer las modificaciones-->
+                                        
+                                        <div class="tabla">
+                                            <div id="izquierda2">
+                                                <form id="Cnomb">
+                                                    <input type="text" id="id1" name="id" placeholder="ID de publicación" class="atributos" required>
+                                                    <input type="text" id="tituloNuevo" name="tituloNuevo" placeholder="Nuevo Nombre" class="atributos" required>
+                                                    <button type="submit">Cambiar Nombre</button>
+                                                </form>
+                                                
+                                                <br><br>
+                                                
+                                                <form id="Cedi">
+                                                    <input type="text" id="id2" name="id" placeholder="ID de publicación" class="atributos" required>
+                                                    <input type="text" id="EditorialNuevo" name="EditorialNuevo" placeholder="ID editorial" class="atributos" required>
+                                                    <button id ="CambiarEditorial"type="submit">Cambiar Editorial</button>
+                                                </form>
+                                                <br><br>
+                                                <form id="InP">
+                                                    <input type="text" id="id3" name="id" placeholder="ID de publicación" class="atributos" required>
+                                                    <input type="text" id="InstitucionNueva" name="IP" placeholder="ID de Institucion" class="atributos" required>
+                                                    <button id="CambiarInstitucion" type="submit">Cambiar Institucion</button>
+                                                    <br>
+                                                </form>
+                                                <br><br>
+                                                <form id="ISBNN">
+                                                    <input type="text" id="id4" name="id" placeholder="ID de publicación" class="atributos" required>
+                                                    <input type="text" id="isbnNuevo" name="IP" placeholder="Nuevo ISBN" class="atributos" required>
+                                                    <button id="CambiarISBN" type="submit">Cambiar ISBN</button>
+                                                    <br>
+                                                </form>
+                                                <br><br>
+                                                <form id="DATE">
+                                                    <input type="text" id="id5" name="id" placeholder="ID de publicación(YYYY-MM-DD)" class="atributos" required>
+                                                    <input type="text" id="FechaNueva" name="DP" placeholder="Nueva Fecha" class="atributos" required>
+                                                    <button id="CambiarFecha" type="submit">Cambiar Fecha</button>
+                                                    <br>
+                                                </form>
+                                            </div>
+
+                                            <div id="Centro2">
+                                                <form id="Aesp">
+                                                    <input type="text" id="id6" name="id" placeholder="ID de publicación" class="atributos" required>
+                                                    <input type="text" id="idespe" name="IdE" placeholder="ID Especies (separados por comas)" class="atributos" required>
+                                                    <button id="AgreEspe" type="submit">Agregar Especie</button>
+                                                    <br>
+                                                </form>
+                                                
+                                                <br><br>
+                                                <form id="Eesp">
+                                                    <input type="text" id="id7" name="id" placeholder="ID de publicación" class="atributos" required>
+                                                    <input type="text" id="idespeE" name="IEl" placeholder="ID Especies (separados por comas)" class="atributos" required>
+                                                    <button id="ElimEspe" type="submit">Eliminar Especie</button>
+                                                    <br>
+                                                </form>
+                                                <br><br>
+                                                <form id="ColP">
+                                                    <input type="text" id="id8" name="id" placeholder="ID de publicación" class="atributos" required>
+                                                    <input type="text" id="AgrCole" name="cole" placeholder="ID de Colección (separados por comas)" class="atributos" required>
+                                                    <button id="AgregarAcolec" type="submit">Agregar a Colección</button>
+                                                    <br>
+                                                </form>
+                                                
+                                                <br><br>
+                                                <form id="DOIY">
+                                                    <input type="text" id="id9" name="id" placeholder="ID de publicación" class="atributos" required>
+                                                    <input type="text" id="doy" name="IP" placeholder="Nuevo DOI" class="atributos" required>
+                                                    <button id="CambiarDOI" type="submit">Cambiar DOI</button>
+                                                    <br>
+                                                </form>
+                                            </div>
+                                            
+                                            <div id="Derecha2">
+                                                <form id="Aato">
+                                                    <input type="text" id="id10" name="id" placeholder="ID de publicación" class="atributos" required>
+                                                    <input type="text" id="AutorNuevo" name="IA" placeholder="ID del autor (separados por comas)" class="atributos" required>
+                                                    <button id="AgregarAutor" type="submit">Agregar Autor</button>
+                                                    <br>
+                                                </form>
+                                                
+                                                
+                                                <br><br>
+                                                <form id="Eato">
+                                                    <input type="text" id="id11" name="id" placeholder="ID de publicación" class="atributos" required>
+                                                    <input type="text" id="AutorMenos" name="IAE" placeholder="ID del autor (separados por comas)" class="atributos" required>
+                                                    <button id="CambiarEditorial" type="submit">Eliminar Autor</button>
+                                                    <br>
+                                                </form>
+                                                <br><br>
+                                                <form id="quitarColP">
+                                                    <input type="text" id="id12" name="id_publi" placeholder="ID de Publicación" class="atributos" required>
+                                                    <input type="text" id="COE" name="id_cole" placeholder="ID de Colección" class="atributos" required>
+                                                    <button id="quitarDeColec" type="submit">Quitar de Colección</button>
+                                                    <br>
+                                                </form>
+                
+                                                
+                                                <br><br>
+                                                <form id="PAIS">
+                                                    <input type="text" id="id13" name="id" placeholder="ID de publicación" class="atributos" required>
+                                                    <input type="text" id="nuPa" name="NP" placeholder="Nuevo País" class="atributos" required>
+                                                    <button type="submit">Cambiar País</button>
+                                                    <br>
+                                                </form>
+                                                
+                                            </div>
+
+                                        </div>
+                                        <br><br><br>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>     <!-- Formulario para eliminar una publicacion -->
+
+                <input type="radio" name="tabs" id="tab4" checked="checked" class="tabInput" value="4">
+                <label for="tab4">Eliminar</label>
+                <div class="tab">
+                    <div class="swiper mySwiper-2" id="swiper4">
+                        <div class="swiper-wrapper">
+
+                            <div class="swiper-slide">
+                                <div class="product">
+                                    <div class="product-txt">
+                                                <form id="elim">
+                                                    <h1 class="anotacion">*Escriba el id de la publicación</h1>
+                                                    <input type="text" id="eliminacion" name="id" placeholder="ID de publicación" class="atributos" required>
+                                                
+                                                    <h1 class="trans">AAAAAAAAAAA</h1>
+                                                    <br>
+                                                    <button id="Elimi" type="submit">Eliminar</button>
+                                                    
+                                                </form>
+                                                <br>
+                                                <br>   <!--Permite ver todas las publicaciones con sus ids respectivos -->
+                                                <button id="P" type="button">Ver Publicaciones</button>
+                                                <div class="Tabla2">
+                                                
+                                                    <h1 class="trans">AAAAAAAA</h1>
+                                                    
+                                                    <ul id="publicacionesList" style="display: none;"></ul>
+                                                </div>
+                                                
+
+                        
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </main>   <!--Boton para mostrar las colecciones -->
+
+        <section class="colecciones">
+            <button id="cargarDatos">Mostrar colecciones</button>
+            <br><br>
+            <ul id="datos" style="display: none;"></ul>
+        </section>
+
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>   <!--Codigo para mejorar el menu deslizante -->
+</body>

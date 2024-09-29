@@ -1,0 +1,516 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital@1&display=swap');
+
+  
+
+@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body{
+    background-color: #080202;
+    font-family: 'Popins',sans-serif;
+}
+
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+
+}
+.swiper-button-pre::after{
+    font-size: 25px;
+}
+.swiper-button-next::after{
+    font-size: 25px;
+}
+.swiper-button-next{
+    color: red;
+}
+.swiper-button-prev{
+    color: red;
+}
+.swiper.pagination-bullet{
+    background-color: aliceblue;
+    opacity: 1;
+}
+.swiper.pagination-bullet-activet{
+    background-color: red;
+}
+
+
+
+.products{
+    background-color: rgb(35, 35, 35);
+}
+.tabs{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0px 0px;
+    justify-content: center;
+    ;
+
+}
+.tabs label{
+    width: 20%;
+    order: 1;
+    display: block;
+    padding: 20px 0;
+    text-align: center;
+    cursor: pointer;
+    color: #555555;
+    font-weight: 700;
+    transition: background ease 0.2s;
+    
+}
+.tabs .tab{
+    order: 4;
+    flex-grow: 1;
+    width: 100%;
+    display: none;
+    padding-top: 10px;
+}
+
+.tabs input[type="radio"] {
+    display: none;
+}
+.tabs input[type="radio"]:checked + label {
+    border-bottom: 2px solid red;
+    color:#ffffff;
+}
+.tabs input[type="radio"]:checked + label + .tab{
+    display: block;
+}
+
+.product{
+    display: flex;
+    align-items: center;
+    padding: 25px;
+    margin: 0 10px;
+}
+.product-img{
+    width: 50%;
+    text-align: left;
+}
+.product-img h4{
+    display: inline-block;
+    padding: 5px 7px;
+    line-height: 15px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-weight: 800;
+    border: 2px solid #555555;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+
+.product-img img{
+    width: 150px;
+    height: 120px;
+}
+.product-txt{
+    width: 50%;
+    margin-left: 10px;
+    text-align: left;
+}
+.product-txt h4{
+    color: #000000;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+.product-txt span{
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 8000;
+}
+
+#cargarDatos {
+    background-color: grey; /* Color de fondo */
+    color: white; /* Color del texto */
+    font-size: 16px; /* Tamaño de la fuente */
+    font-family: 'Popins',sans-serif; /* Fuente del texto */
+    padding: 10px 20px; /* Tamaño del botón (padding) */
+    border-radius: 5px; /* Esquinas redondeadas */
+    border: none; /* Quitar borde predeterminado */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+
+#datos {
+    width: 1100px; /* Ajusta este valor según sea necesario */
+    white-space: normal; /* Permite el salto de línea natural */
+}
+#datos li {
+    border: 2px solid blue; /* Borde gris claro */;
+    padding: 2%; /* Espacio interior */
+    margin-bottom: 10px; /* Espacio entre elementos */
+    border-radius: 5px; /* Esquinas redondeadas */
+    list-style-type: none; /* Quitar viñetas */
+}
+.Encabezado {
+    font-family: "Old Standard TT", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 60px; /* Tamaño de la fuente */
+    color: rgb(149, 8, 8); /* Color del texto */
+    text-align: left; /* Alinear el texto al centro */
+    margin: 10px 0; /* Margen superior e inferior */
+    padding: 10px; /* Espacio interior */
+    border-radius: 5px; /* Esquinas redondeadas (opcional) */
+}
+.miniTitulo{
+    font-family: "Old Standard TT", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 40px; /* Tamaño de la fuente */
+    color: #ffffff; /* Color del texto */
+    text-align: center; /* Alinear el texto al centro */
+    margin: 20px 0; /* Margen superior e inferior */
+    padding: 50px; /* Espacio interior */
+    padding-top: 40px;
+}
+#willy {
+    background-color: grey; /* Color de fondo */
+    color: white; /* Color del texto */
+    font-size: 16px; /* Tamaño de la fuente */
+    font-family: 'Popins',sans-serif; /* Fuente del texto */
+    padding: 20px 60px; /* Tamaño del botón (padding) */
+    border-radius: 5px; /* Esquinas redondeadas */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+#nombreC {
+    background-color: #ffffff; /* Color de fondo */
+    color: #000000; /* Color del texto */
+    text-align: left;
+    font-size: 16px; /* Tamaño de la fuente */
+    font-family: 'Popins', sans-serif; /* Fuente del texto */
+    padding: 15px; /* Espaciado interno uniforme */
+    width: 700%; /* Ancho del campo */
+    max-width: 1400px; /* Máximo ancho para mantenerlo razonable */
+    border-radius: 5px; /* Esquinas redondeadas */
+    box-sizing: border-box; /* Asegura que padding no incremente el tamaño total */
+}
+
+
+#Mostrar {
+    background-color: grey; /* Color de fondo */
+    color: white; /* Color del texto */
+    font-size: 16px; /* Tamaño de la fuente */
+    font-family: 'Popins',sans-serif; /* Fuente del texto */
+    padding: 10px 20px; /* Tamaño del botón (padding) */
+    border-radius: 5px; /* Esquinas redondeadas */
+    border: none; /* Quitar borde predeterminado */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+
+.PublicsImprimir {
+    font-family: Popins, sans-serif; /* Fuente del texto */
+    color: #c0bebe; /* Color del texto */
+    font-size: 20px; /* Tamaño de la fuente */
+    line-height: 1.6; /* Espaciado entre líneas */
+    padding: 20px; /* Espacio interno alrededor del texto */
+    font-weight: bold;
+}
+
+/* Si quieres cambiar específicamente los h1 y p dentro de esta clase */
+.PublicsImprimir h1 {
+    font-size: 24px; /* Tamaño del título */
+    color: darkblue; /* Color del título */
+}
+
+.PublicsImprimir p {
+    font-size: 16px; /* Tamaño del párrafo */
+    color: black; /* Color del párrafo */
+}
+
+#pus {
+    width: 1100px; /* Ajusta este valor según sea necesario */
+    white-space: normal; /* Permite el salto de línea natural */
+}
+#pus li {
+    border: 2px solid  rgb(122, 38, 38); /* Borde gris claro */;
+    padding: 2%; /* Espacio interior */
+    margin-bottom: 10px; /* Espacio entre elementos */
+    border-radius: 5px; /* Esquinas redondeadas */
+    list-style-type: none; /* Quitar viñetas */
+}
+#pus li strong {
+    color: #d1d725; /* Color del texto para el título */
+    font-weight: bold;  
+}
+
+.resultados li {
+    background-color: rgb(35, 35, 35); /* Color de fondo */
+    color: white;
+    font-weight: bold;
+    padding: 10px; /* Espaciado interno */
+    margin: 5px 0; /* Espaciado entre elementos */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.colecciones{
+    color: white;
+    font-weight: bold;
+    padding: 10px; /* Espaciado interno */
+    margin: 5px 0; /* Espaciado entre elementos */
+    border-radius: 5px; /* Bordes redondeados */
+}
+.colecciones button{
+    color: blue;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: large;
+    background: transparent;
+    border: none;
+
+}
+.masDatos strong{
+    color: #d1d725; /* Color del texto para el título */
+    font-weight: bold;  
+}
+.masDatos li{
+    background-color: rgb(35, 35, 35); /* Color de fondo */
+    color: white;
+    font-weight: bold;
+    padding: 10px; /* Espaciado interno */
+    margin: 5px 0; /* Espaciado entre elementos */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+#Agregar {
+    background-color: grey; /* Color de fondo */
+    color: white; /* Color del texto */
+    font-size: 16px; /* Tamaño de la fuente */
+    font-family: 'Popins',sans-serif; /* Fuente del texto */
+    padding: 5px 15px; /* Tamaño del botón (padding) */
+    border-radius: 5px; /* Esquinas redondeadas */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+.anotacion{
+    font-size: 10px;
+    font-family: 'Popins',sans-serif;
+    background:  transparent;
+    color:#d1d725;
+    border: none;
+    padding: 20px 60px;
+    text-align: left;
+    padding: 5px; /* Espaciado interno uniforme */
+    width: 700%; /* Ancho del campo */
+    max-width: 1400px; /* Máximo ancho para mantenerlo razonable */
+    box-sizing: border-box; /* Asegura que padding no incremente el tamaño total */
+}
+#AgregaF{
+    background: transparent;
+    margin-bottom: 10px; /* Espacio entre elementos de la lista */
+    border: 1px solid #ccc; /* Añade un borde alrededor de cada elemento */
+
+}
+.tabla {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 auto;
+}
+
+#AgregarF input[type="text"] {
+    width: 100%; /* Ocupa el 100% del ancho del contenedor */
+    padding: 10px; /* Espaciado interno para mejor apariencia */
+    margin-bottom: 10px; /* Espaciado entre los campos */
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+}
+
+#izquierda {
+    flex: 0 0 100%; /* Columna izquierda con ancho fijo */
+    margin-right: 100px; /* Espacio entre la izquierda y el centro/derecha */
+}
+
+#Centro, #Derecha, #Autores, #Especies {
+    flex: 1; /* Columna central y derecha comparten el espacio restante */
+    margin-right: 2px; /* Espacio entre el centro y la derecha */
+}
+
+#Centro {
+    margin-right: 10px; /* Elimina el margen derecho del centro */
+}
+#institucionesList li {
+    margin-bottom: 10px; /* Espacio entre elementos de la lista */
+    font-size: 12px;
+    border: 1px solid #ccc; /* Añade un borde alrededor de cada elemento */
+    background: #f9f9f9; /* Fondo claro para la lista */
+    padding: 5px;
+    width: 170px;
+}
+#editorialesList li  {
+    margin-bottom: 10px; /* Espacio entre elementos de la lista */
+    font-size: 12px;
+    border: 1px solid #ccc; /* Añade un borde alrededor de cada elemento */
+    background: #f9f9f9; /* Fondo claro para la lista */
+    padding: 5px;
+    width: 170px;
+}
+#autoresList li  {
+    margin-bottom: 10px; /* Espacio entre elementos de la lista */
+    font-size: 12px;
+    border: 1px solid #ccc; /* Añade un borde alrededor de cada elemento */
+    background: #f9f9f9; /* Fondo claro para la lista */
+    padding: 5px;
+    width: 170px;
+}
+#especiesList li  {
+    margin-bottom: 10px; /* Espacio entre elementos de la lista */
+    font-size: 12px;
+    border: 1px solid #ccc; /* Añade un borde alrededor de cada elemento */
+    background: #f9f9f9; /* Fondo claro para la lista */
+    padding: 5px;
+    width: 170px;
+}
+
+
+
+#publicacionesList {
+    display: grid;
+    columns: 5;
+    width: 1000px;
+}
+#publicacionesList li {
+    margin-bottom: 10px; /* Espacio entre elementos de la lista */
+    font-size: 16px;
+    border: 1px solid #ccc; /* Añade un borde alrededor de cada elemento */
+    background: #f9f9f9; /* Fondo claro para la lista */
+    padding: 10px;
+    width: 200px;
+    height: 100px;
+    -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid; 
+
+}
+
+
+.trans{
+    color: rgb(35,35,35);
+}
+
+#I,#E,#A, #Es{
+    font-weight: bold;
+}
+#Elimi{
+    background-color: grey; /* Color de fondo */
+    color: white; /* Color del texto */
+    font-size: 16px; /* Tamaño de la fuente */
+    font-family: 'Popins',sans-serif; /* Fuente del texto */
+    padding: 20px 60px; /* Tamaño del botón (padding) */
+    border-radius: 5px; /* Esquinas redondeadas */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+#eliminacion {
+    background-color: #ffffff; /* Color de fondo */
+    color: #000000; /* Color del texto */
+    text-align: left;
+    font-size: 16px; /* Tamaño de la fuente */
+    font-family: 'Popins', sans-serif; /* Fuente del texto */
+    padding: 15px; /* Espaciado interno uniforme */
+    width: 700%; /* Ancho del campo */
+    max-width: 1400px; /* Máximo ancho para mantenerlo razonable */
+    border-radius: 5px; /* Esquinas redondeadas */
+    box-sizing: border-box; /* Asegura que padding no incremente el tamaño total */
+}
+
+
+
+#izquierda2, #Centro2, #Derecha2{
+    flex: 1; /* Columna central y derecha comparten el espacio restante */
+    margin-right: 30px; /* Espacio entre el centro y la derecha */
+    margin-left: 30px; /* Espacio entre el centro y la derecha */
+}
+
+#izquierda2{
+    flex: 1; /* Columna central y derecha comparten el espacio restante */
+    margin-left: 60px; /* Espacio entre el centro y la derecha */
+}
+
+#Cnomb input[type="text"], #Cedi input[type="text"], #Aesp input[type="text"], #Eesp input[type="text"],
+#Aato [type="text"], #Eato input[type="text"], #InP input[type="text"], #ColP input[type="text"],
+#quitarColP [type="text"], #ISBNN [type="text"], #DOIY [type="text"], #PAIS [type="text"], #DATE [type="text"]{ 
+    width: 300px; /* Ocupa el 100% del ancho del contenedor */
+    padding: 10px; /* Espaciado interno para mejor apariencia */
+    margin-bottom: 2px; /* Espaciado entre los campos */
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+}
+#publicacionesList2 {
+    display: grid;
+    columns: 3;
+    width: 1000px;
+}
+#publicacionesList2 li {
+    margin-bottom: 10px; /* Espacio entre elementos de la lista */
+    font-size: 16px;
+    border: 1px solid #ccc; /* Añade un borde alrededor de cada elemento */
+    background: #f9f9f9; /* Fondo claro para la lista */
+    padding: 10px;
+    width: 320px;
+    height: 360px;
+    -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid; 
+}
+
+#nombreC2 {
+    background-color: #ffffff; /* Color de fondo */
+    color: #000000; /* Color del texto */
+    text-align: left;
+    font-size: 16px; /* Tamaño de la fuente */
+    font-family: 'Popins', sans-serif; /* Fuente del texto */
+    padding: 15px; /* Espaciado interno uniforme */
+    width: 200%; /* Ancho del campo */
+    max-width: 1000px; /* Máximo ancho para mantenerlo razonable */
+    border-radius: 5px; /* Esquinas redondeadas */
+    box-sizing: border-box; /* Asegura que padding no incremente el tamaño total */
+}
+
+#willy2 {
+    background-color: grey; /* Color de fondo */
+    color: white; /* Color del texto */
+    font-size: 16px; /* Tamaño de la fuente */
+    font-family: 'Popins',sans-serif; /* Fuente del texto */
+    padding: 15px 35px; /* Tamaño del botón (padding) */
+    border-radius: 5px; /* Esquinas redondeadas */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+.Barra{
+    display: grid;
+    columns: 2;
+    width: 10000px;
+}
+
+.boton-detalles {
+    background-color: transparent; /* Color de fondo */
+    color: blue; /* Color del texto */
+    text-decoration: underline;
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Esquinas redondeadas */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+    font-size: 18px;
+    font-family: 'Popins',sans-serif;
+    font-weight: bold;
+}
+
+.BotonEspecie {
+    background-color: transparent; /* Color de fondo */
+    text-decoration: underline;
+    color: blue; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Esquinas redondeadas */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+    font-size: 18px;
+    font-family: "Old Standard TT", system-ui;
+    font-weight: bold;
+    font-style: italic; /* Aplica esto solo al párrafo que desees */
+    
+}
