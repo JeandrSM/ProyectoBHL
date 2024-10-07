@@ -631,11 +631,10 @@ function agregarPubli(event) {
         },
         body: JSON.stringify(data),
     })
-    .then(response => {
+    .then(async response => {
         if (!response.ok) {
-            return response.json().then(errorData => {
-                throw new Error(errorData.error); // Maneja el mensaje de error específico
-            });
+            const errorData = await response.json();
+            throw new Error(errorData.error); // Maneja el mensaje de error específico
         }
         return response.json();
     })
