@@ -1,2 +1,8 @@
-Se debe descomprimir el archivo .zip, que contine la biblioteca de node.js que ayuda la conexión a la bases de datos.
-Ejecutar 'node server.js'  para conectar la base de datos 
+Pasos para ejecutar:
+
+  1. Descargue todos los archivos del github y adjuntelos en una carpeta
+  2. Descargar node.js 
+  3. En la terminal de vs escribir npm install -g npm
+  4. En la terminal de vs escribir npm install express
+  5. En la terminal de vs node server.js
+  6. Abra el html en google
