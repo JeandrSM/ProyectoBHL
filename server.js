@@ -74,14 +74,18 @@ app.get('/api/binomial', async (req, res) => {
             const fechaFormateada = `${año}/${mes}/${dia}`;
             publicaciones[head].public_date = fechaFormateada;
 
-            publicaciones[head].col.push(item.col);
-            
-            publicaciones[head].binomial_name.push(item.binomial_name);
-            
+            // Agregar colecciones, nombres binomiales y autores
+            if (item.col && !publicaciones[head].col.includes(item.col)) {
+                publicaciones[head].col.push(item.col);
+            }
+            if (item.binomial_name && !publicaciones[head].binomial_name.includes(item.binomial_name)) {
+                publicaciones[head].binomial_name.push(item.binomial_name);
+            }
 
             const authorFullName = `${item.f_name || ''} ${item.s_name || ''} ${item.f_sname || ''} ${item.s_sname || ''}`.trim();
+            if (authorFullName && !publicaciones[head].authors.includes(authorFullName)) {
                 publicaciones[head].authors.push(authorFullName);
-            
+            }
         });
 
         // Asegurar que cada publicación tenga al menos un mensaje si no hay colecciones, especies o autores
@@ -156,14 +160,17 @@ app.get('/api/titulo', async (req, res) => {
             publicacionesPorTitulo[head].public_date = fechaFormateada;
 
             // Agregar colecciones, especies y autores
+            if (item.col_name && !publicacionesPorTitulo[head].col.includes(item.col_name)) {
                 publicacionesPorTitulo[head].col.push(item.col_name);
-            
+            }
+            if (item.binomial_name && !publicacionesPorTitulo[head].binomial_name.includes(item.binomial_name)) {
                 publicacionesPorTitulo[head].binomial_name.push(item.binomial_name);
-            
+            }
 
             const authorFullName = `${item.f_name || ''} ${item.s_name || ''} ${item.f_sname || ''} ${item.s_sname || ''}`.trim();
+            if (authorFullName && !publicacionesPorTitulo[head].authors.includes(authorFullName)) {
                 publicacionesPorTitulo[head].authors.push(authorFullName);
-            
+            }
         });
 
         // Asegurar que cada publicación tenga al menos un mensaje si no hay colecciones, especies o autores
@@ -210,8 +217,9 @@ app.get('/api/especie', async (req, res) => {
             }
 
             // Agregar colecciones, nombres binomiales y autores
+            if (item.common_name && !publicaciones[binomial_name].common_name.includes(item.common_name)) {
                 publicaciones[binomial_name].common_name.push(item.common_name);
-            
+            }
         });
 
         // Asegurar que cada publicación tenga al menos un mensaje si no hay colecciones, especies o autores
@@ -273,7 +281,6 @@ app.get('/api/collection', async (req, res) => {
             FROM collection C
             LEFT JOIN public_collect PC ON C.id = PC.id_collect
             LEFT JOIN publication P ON P.id = PC.id_public
-            order by (C.id)
         `);
 
         const colecciones = {};
@@ -289,8 +296,9 @@ app.get('/api/collection', async (req, res) => {
                 };
             }
             // Agregar publicación solo si existe
+            if (item.head) {
                 colecciones[name].head.push(item.head);
-            
+            }
         });
 
         // Verificar si las colecciones están vacías
@@ -327,10 +335,6 @@ app.get('/api/institu', async (req, res) => {
         res.status(500).send('Error en la base de datos');
     }
 });
-
-
-
-
 //Muestra las editoriales junto su id
 app.get('/api/editu', async (req, res) => {
     try {
@@ -350,10 +354,6 @@ app.get('/api/editu', async (req, res) => {
         res.status(500).send('Error en la base de datos');
     }
 });
-
-
-
-
 //Muestra los autores junto su id
 app.get('/api/acto', async (req, res) => {
     try {
@@ -377,11 +377,6 @@ app.get('/api/acto', async (req, res) => {
     }
 });
 
-
-
-
-
-
 //Muestra las especies junto su id
 app.get('/api/espe', async (req, res) => {
     try {
@@ -403,11 +398,6 @@ app.get('/api/espe', async (req, res) => {
     }
 });
 
-
-
-
-
-
 //Muestra las publicaciones junto su id
 app.get('/api/pu', async (req, res) => {
     try {
@@ -428,12 +418,6 @@ app.get('/api/pu', async (req, res) => {
         res.status(500).send('Error en la base de datos');
     }
 });
-
-
-
-
-
-
 
 
 //Muestra la publicacione con el nombre filtrado junto todos sus datos
@@ -485,14 +469,17 @@ app.get('/api/publi', async (req, res) => {
             publicaciones[doi].public_date = fechaFormateada;
 
             // Agregar colecciones, nombres binomiales y autores
+            if (item.col && !publicaciones[doi].col.includes(item.col)) {
                 publicaciones[doi].col.push(item.col);
-            
+            }
+            if (item.binomial_name && !publicaciones[doi].binomial_name.includes(item.binomial_name)) {
                 publicaciones[doi].binomial_name.push(item.binomial_name);
-            
+            }
 
             const authorFullName = `${item.f_name || ''} ${item.s_name || ''} ${item.f_sname || ''} ${item.s_sname || ''}`.trim();
+            if (authorFullName && !publicaciones[doi].authors.includes(authorFullName)) {
                 publicaciones[doi].authors.push(authorFullName);
-            
+            }
         });
 
         // Asegurar que cada publicación tenga al menos un mensaje si no hay colecciones, especies o autores
@@ -565,15 +552,7 @@ app.post('/api/InserPubli', async (req, res) => {
         if (existeInst.rows.length === 0) {
             return res.status(400).json({ error: 'El Instituto no existe.' });
         }
-
-        const date = new Date(public_date);
-
-// Validar que la fecha sea correcta
-        if (date.getFullYear() !== parseInt(public_date.split('-')[0]) || 
-            date.getMonth() + 1 !== parseInt(public_date.split('-')[1]) || 
-            date.getDate() !== parseInt(public_date.split('-')[2])) {
-            return res.status(400).json({ error: 'La fecha no es válida.' });
-        }
+        
 
         const existeEdito = await pool.query(`
             SELECT id FROM editorial WHERE id = $1
@@ -584,13 +563,14 @@ app.post('/api/InserPubli', async (req, res) => {
         }
 
         // Verificar si todos los species_ids existen
-            const speciesQueryV = `
+        if (species_ids.length > 0) {
+            const speciesQuery = `
                 SELECT id FROM species WHERE id = ANY($1::int[])
             `;
             // Convertir species_ids a enteros
             const speciesIdsInt = species_ids.map(id => parseInt(id, 10));
         
-            const { rows: speciesExistentes } = await pool.query(speciesQueryV, [speciesIdsInt]);
+            const { rows: speciesExistentes } = await pool.query(speciesQuery, [speciesIdsInt]);
         
             const speciesIdsValidos = speciesExistentes.map(row => row.id);
             const speciesIdsInvalidos = speciesIdsInt.filter(id => !speciesIdsValidos.includes(id));
@@ -599,17 +579,18 @@ app.post('/api/InserPubli', async (req, res) => {
             if (speciesIdsInvalidos.length > 0) {
                 return res.status(400).json({ error: 'Uno o más species_ids no existen: ' + speciesIdsInvalidos.join(', ') });
             }
-        
+        }
 
         // Verificar si todos los author_ids existen
-            const authorsQueryV = `
+        if (author_ids.length > 0) {
+            const authorsQuery = `
                 SELECT id FROM author WHERE id = ANY($1::int[])
             `;
         
             // Convertir author_ids a enteros
             const authorIdsInt = author_ids.map(id => parseInt(id, 10));
         
-            const { rows: authorsExistentes } = await pool.query(authorsQueryV, [authorIdsInt]);
+            const { rows: authorsExistentes } = await pool.query(authorsQuery, [authorIdsInt]);
         
             const authorIdsValidos = authorsExistentes.map(row => row.id);
             const authorIdsInvalidos = authorIdsInt.filter(id => !authorIdsValidos.includes(id));
@@ -618,18 +599,19 @@ app.post('/api/InserPubli', async (req, res) => {
             if (authorIdsInvalidos.length > 0) {
                 return res.status(400).json({ error: 'Uno o más author_ids no existen: ' + authorIdsInvalidos.join(', ') });
             }
-        
+        }
         
 
         // Verificar si todos los colects_ids existen
-            const colectsQueryV = `
+        if (colects_ids.length > 0) {
+            const colectsQuery = `
                 SELECT id FROM collection WHERE id = ANY($1::int[])
             `;
         
             // Convertir colects_ids a enteros
             const colectsIdsInt = colects_ids.map(id => parseInt(id, 10));
         
-            const { rows: colectsExistentes } = await pool.query(colectsQueryV, [colectsIdsInt]);
+            const { rows: colectsExistentes } = await pool.query(colectsQuery, [colectsIdsInt]);
         
             const colectIdsValidos = colectsExistentes.map(row => row.id);
             const colectIdsInvalidos = colectsIdsInt.filter(id => !colectIdsValidos.includes(id));
@@ -639,7 +621,7 @@ app.post('/api/InserPubli', async (req, res) => {
             if (colectIdsInvalidos.length > 0) {
                 return res.status(400).json({ error: 'Uno o más colects_ids no existen: ' + colectIdsInvalidos.join(', ') });
             }
-        
+        }
         
 
         await pool.query('BEGIN');
@@ -654,37 +636,40 @@ app.post('/api/InserPubli', async (req, res) => {
         const publicationId = result.rows[0].id; // Obtener el ID de la nueva publicación insertada
 
         // Insertar especies asociadas, si las hay
-        
+        if (species_ids.length > 0) {
             const speciesQuery = `
                 INSERT INTO public_species (id_public, id_species)
                 SELECT $1, UNNEST($2::int[])
                 ON CONFLICT (id_public, id_species) DO NOTHING
             `;
             await pool.query(speciesQuery, [publicationId, species_ids]);
-        
+        }
 
         // Insertar autores asociados, si los hay
+        if (author_ids.length > 0) {
             const authorsQuery = `
                 INSERT INTO public_author (id_public, id_author)
                 SELECT $1, UNNEST($2::int[])
                 ON CONFLICT (id_public, id_author) DO NOTHING
             `;
             await pool.query(authorsQuery, [publicationId, author_ids]);
-        
+            await pool.query('COMMIT');  // Confirmar la transacción
+        }
 
         // Insertar colecciones asociadas, si las hay
+        if (colects_ids.length > 0) {
             const colectsQuery = `
                 INSERT INTO public_collect (id_public, id_collect)
                 SELECT $1, UNNEST($2::int[])
                 ON CONFLICT (id_public, id_collect) DO NOTHING
             `;
             await pool.query(colectsQuery, [publicationId, colects_ids]);
-        
+        }
 
     
         res.status(201).json({ message: 'Publicación insertada con éxito' });
-        await pool.query('COMMIT');  // Confirmar la transacción
-    }catch (err) {
+        
+    } catch (err) {
         console.error(err);
         res.status(500).json({ error: 'Error en la base de datos' });
     }
